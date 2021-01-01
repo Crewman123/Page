@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
 <body>
-    <h1>Stop the count!</h1>
-    <h2>Gespielte Runden: 7</h2>
-    <div>
-        <table>
-            <tbody>
-                <tr>
-                    <td>1.</td>
-                    <td>&#x1f35e; Fleischkäse vom Globus &#x1f35e;</td>
-                    <td>30</td>
-                    <td>Winner winner chicken dinner</td>
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>Educated Guessts</td>
-                    <td>26</td>
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>Einseitiger Würfel</td>
-                    <td>26</td>
-                </tr>
-                <tr>
-                    <td>4.</td>
-                    <td>Worcester aka Team Worstscheibe</td>
-                    <td>25,5</td>
-                </tr>
-                <tr>
-                    <td>5.</td>
-                    <td>Ilohhminati</td>
-                    <td>23</td>
-                </tr>
-                <tr>
-                    <td>6.</td>
-                    <td>Drei Fragezeichen</td>
-                    <td>20,5</td>
-                </tr>
-                <tr>
-                    <td>7.</td>
-                    <td>Purple death and the humble return of the monster</td>
-                    <td>19,5</td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="rollingBack" class="background" />
+    <div id="staticBack" class="background">
+        <h1  class="gradientTile">Gespielte Runden: 7</h1>
+        <div class="gradientTile">
+            <table id="table">
+                <thead></thead>
+            </table>
+        </div>
     </div>
+    <script>
+
+        var data = [
+            { "Score": 1, "Name": "Fleischk\u00e4se vom Globus" },
+            { "Score": 2, "Name": "Educated Guessts" },
+            { "Score": 5, "Name": "Einseitiger W\u00fcrfel" },
+            { "Score": 5.5, "Name": "Worcester aka Team Worstscheibe" },
+            { "Score": 3, "Name": "Drei Fragezeichen" },
+            { "Score": 4, "Name": "Purple death and the humble return of the monster" }
+        ];
+
+        data.sort(function (a, b) {
+            return a.Score - b.Score;
+        });
+
+        var table = document.getElementById('table');
+
+        for (var i = 0; i < data.length; i++) {
+            var tr = document.createElement('tr');
+
+            tr.appendChild(document.createElement('td'));
+            tr.appendChild(document.createElement('td'));
+
+            tr.cells[0].appendChild(document.createTextNode(data[i].Name))
+            tr.cells[1].appendChild(document.createTextNode(data[i].Score));
+
+            table.appendChild(tr);
+        }
+    </script>
 </body>
 </html>
