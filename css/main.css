@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#staticBack {
+    background-image: url("Background.png");
+    background-size: 100% 100%;
+}
+
+#rollingBack {
+    background-image: url("rolling.jpg");
+    background-size: 200% 100%;
+    animation: rollAnimation 30s ease infinite;
+}
+
+@keyframes rollAnimation {
+    0% {
+        background-position: 0% 0%
+    }
+
+    100% {
+        background-position: 100% 0%
+    }
+}
+
+.gradientTile {
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    background-color: rgba(100,100,100,0.5);
+    background-size: 300% 300%;
+    text-align: center;
+    color: white;
+}
+
+.gradientTile:hover {
+    background-color: rgba(128,128,128,0.5);
+}
